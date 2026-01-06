@@ -55,6 +55,7 @@ async function readSheetData()
 
   for(let x of pendingRows)
   {
+    console.log(x)
     await queue.add('user' , {
       'ProductName':x[0],
       'ProductDetails':x[1],

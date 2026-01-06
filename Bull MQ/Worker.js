@@ -34,7 +34,7 @@ const worker = new Worker('Users' , async (msg)=>{
     // If Userid is Present Delegate Request to Telegram
     if(userId && service.toUpperCase() === 'TELEGRAM')
     {
-        Telegram(userId , productName , productDetails , language , userName)
+        Telegram(userId , productName , productDetails , language , userName, gmail)
     }
 
     // If Contact is present Delegate request to Whatsapp
@@ -78,7 +78,7 @@ const telegramWorker = new Worker('telegramFeedbackQueue' , async (msg)=>{
     })
 
     await saveToTelegram.save();
-    console.log('Saved to Telegram')
+    console.log(`Saved to Telegram Data is ${saveToTelegram}`)
 
 },{
     connection:redisConnection,
