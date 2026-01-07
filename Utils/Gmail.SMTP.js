@@ -34,7 +34,7 @@ async function sendMail(messageToSend , from='<no-reply@arjun.go.dev>' , to , su
             from,
             to,
             subject,
-            text,
+            text:messageToSend,
             attachments:[{filename:"Client Pulse Logo" , content:fs.readFileSync(path.join(__dirname , '..' , 'Client_Pulse_Logo.png')) , cid:"logo@Client_Pulse"}],
             html:'<p><img src="cid:logo@Client_Pulse" alt="Client Pulse Always For You.."></p>',
         })
@@ -64,4 +64,4 @@ async function sendTestMail(messageToSend , from='<no-reply@arjun.go.dev>' , to 
     }
 }
 
-module.export = {sendTestMail , sendMail}
+module.exports = {sendTestMail , sendMail}

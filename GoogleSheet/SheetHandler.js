@@ -49,9 +49,15 @@ async function readSheetData()
   const header = rows[0];
 
   const dataRows = rows.slice(1)
-  const pendingRows = dataRows.filter(row => row[5]?.trim().toUpperCase() === 'PENDING')
+  const pendingRows = dataRows.filter((row , index)=>{
+    row._rowNumber = index+2
+    return row[5]?.trim().toUpperCase() === "PENDING"
+  })
 
-  console.log(rows)
+  let dataFlushArray = []
+  setTimeout(async ()=>{
+
+  },50000)
 
   for(let x of pendingRows)
   {
@@ -65,9 +71,10 @@ async function readSheetData()
       'Status':x[5],
       'Summary':x[6],
       'Service':x[7],
-      'UserName':x[8] || 'Unknown User'
+      'UserName':x[8] || 'Unknown User',
     })
+    dataFlushArray.push(x._rowNumber)
   }
 }
-readSheetData()
+readSheetData() // IFFE
 module.exports = readSheetData // Async Function

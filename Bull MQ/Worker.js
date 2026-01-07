@@ -5,7 +5,7 @@ const Telegram = require('../Telegram/Telegram')
 const db = require('../Database/Database')
 const telegramSummaryModel = require('../Database Schema/TelegramSummary.Model')
 const whatsappSummaryModel = require('../Database Schema/WhatsAppSummary.Model')
-
+const {sendTestMail , sendMail} = require('../Utils/Gmail.SMTP')
 db()
 
 require('dotenv').config({
@@ -111,4 +111,22 @@ const whatsappWorker = new Worker('whatsappFeedbackQueue' , async (msg)=>{
 },{
     connection:redisConnection,
     concurrency:parseInt(process.env.REDIS_CONCURRENCY) || 1
+})
+
+const mailWorker = new Worker('mailQueue' , async (msg)=>{
+    let {productName , productDetails , userName , summary , language , contact , gmailId } = await msg.data
+    if(!gmailId){
+        throw new Error("NON_RETRYABLE_ERROR")
+    }
+    try{
+        const messageToSend = `Thanks For Providing Your Feedback On Client Pulse We Will Strongly Consider It This Mail Is Forwarded To Respected Compnay`
+        const subject = `Product Feedback`
+        await sendMail(messageToSend , "<no-reply@arjun.go.dev>" , gmailId , subject)
+    }
+    catch(error){
+        throw new Error(error.message)
+    }
+    finally{
+        // NULL
+    }
 })

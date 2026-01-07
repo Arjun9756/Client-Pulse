@@ -75,6 +75,14 @@ const feedbackQueue = new Queue('telegramFeedbackQueue' , {
     }
 })
 
+const mailQueue = new Queue('mailQueue' , {
+    connection:{
+        host:process.env.REDIS_HOST,
+        password:process.env.REDIS_PASSWORD,
+        port:process.env.REDIS_PORT
+    }
+})
+
 /* 
     * Function to send the Messgae via Bot to ths userID
     * Send Message with capaction
@@ -266,6 +274,25 @@ bot.on('message', async (msg) => {
                 service:"Telegram",
                 gmailId:user.gmailId
             })
+
+            await mailQueue.add('sendMail' , {
+                userName:user.userName,
+                productName:user.productName,
+                productDetails:user.productDetails,
+                language:user.language,
+                userId:user._id,
+                summary:summary.summary,
+                service:"Telegram",
+                gmailId:user.gmailId
+            },{
+                removeOnComplete:true,
+                attempts:4,
+                backoff:{type:"exponential" , delay:5000},
+                removeOnFail:true,
+                priority:3,
+                timeout:10000
+            })
+
             await redis.del(userId)      // Delete the session of user
         }
 
@@ -335,6 +362,24 @@ bot.on('voice', async (msg) => {
                 summary:summary.summary,
                 service:"Telegram",
                 gmailId:user.gmailId
+            })
+
+            await mailQueue.add('sendMail' , {
+                userName:user.userName,
+                productName:user.productName,
+                productDetails:user.productDetails,
+                language:user.language,
+                userId:user._id,
+                summary:summary.summary,
+                service:"Telegram",
+                gmailId:user.gmailId
+            },{
+                removeOnComplete:true,
+                attempts:4,
+                backoff:{type:"exponential" , delay:5000},
+                removeOnFail:true,
+                priority:3,
+                timeout:10000
             })
             await redis.del(userId)
 
