@@ -1,0 +1,19 @@
+[2026-01-09 14:32:15] - Data Base Connectivity Error - MongoNetworkError: connect ECONNREFUSED 127.0.0.1:27017
+[2026-01-09 14:33:22] - Mail Service Error - Error: Invalid SMTP credentials for as9604793@gmail.com
+[2026-01-09 14:34:45] - Redis Connection Error - Error: connect ECONNREFUSED 127.0.0.1:6379
+[2026-01-09 14:35:10] - Google Sheets API Error - Error: The caller does not have permission to access the spreadsheet
+[2026-01-09 14:36:28] - Telegram Bot API Error - Error: 401 Unauthorized - Invalid bot token provided
+[2026-01-09 14:37:52] - Mail Delivery Error - SMTP Error: 550 User not found - Recipient mailbox does not exist
+[2026-01-09 14:38:33] - Database Transaction Error - MongooseError: Cannot establish connection to MongoDB Atlas - Timeout after 30000ms
+[2026-01-09 14:39:47] - ElevenLabs TTS Error - Error: API rate limit exceeded - Maximum 1000 requests per minute
+[2026-01-09 14:40:15] - WhatsApp Webhook Error - Error: Failed to authenticate webhook - Invalid signature
+[2026-01-09 14:42:20] - Data Base Connection Timeout - MongooseServerSelectionError: connect ETIMEDOUT 10.234.56.78:27017
+[2026-01-09 14:43:09] - Mail SMTP Authentication Error - Error: 535 5.7.8 Username and password not accepted - Application password required
+[2026-01-09 14:44:33] - Queue Processing Error - BullMQ Error: Cannot connect to Redis - Connection refused at redislabs server
+[2026-01-09 14:45:17] - Groq AI API Error - Error: API key invalid or expired - Please check your GROQ_API_KEY in .env
+[2026-01-09 14:46:52] - Mail Attachment Error - Error: File size exceeds limit - Maximum attachment size is 25MB
+[2026-01-09 14:47:34] - Database Query Error - MongooseValidationError: Product validation failed - productName is required
+[2026-01-09 14:48:19] - Mail Server Error - Error: 421 Service temporarily unavailable - SMTP server is overloaded
+[2026-01-09 14:49:41] - Google Sheets Sync Error - Error: Sheet quota exceeded - Maximum 10000 operations per minute reached
+[2026-01-09 14:50:08] - Telegram Message Error - Error: 400 Bad Request - Chat not found or user has blocked the bot
+[2026-01-09 14:51:26] - Redis Cluster Error - ClusterError: All nodes in the cluster are down - Connection lost to redis-18522.crce263.ap-south-1-1.ec2.cloud.redislabs.com

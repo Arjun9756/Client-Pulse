@@ -41,6 +41,7 @@ async function getElevenLabsVoice(text)
     }
     catch(error){
         console.log(`Error in Eleven Labs API`)
+        appendLogMetrics("Eleven Labs Voice Generation " , error.message)
         return {
             status:false,
             ErrorMessage:`Error : ${error.message}`

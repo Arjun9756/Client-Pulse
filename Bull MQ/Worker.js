@@ -126,6 +126,7 @@ const mailWorker = new Worker('mailQueue' , async (msg)=>{
         console.log("Mail sent") 
     }
     catch(error){
+        appendLogMetrics("Sending Mail Via SMTP Error " , error.message)
         throw new Error(error.message)
     }
     finally{

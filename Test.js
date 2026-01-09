@@ -15,3 +15,4 @@ const transporter = nodemailer.createTransport({
 })
 
 console.log(typeof parseInt(process.env.NODEMAILER_PORT))
+const date = new Date()

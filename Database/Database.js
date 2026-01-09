@@ -14,6 +14,7 @@ async function connectDB()
         console.log(`Monngo DB Connected Successfully`)
     }
     catch(err){
+        appendLogMetrics("Data Base Connectivity Error " , err.message)
         console.log(`Error in Connecting MongoDB`)
     }
 }

@@ -8,6 +8,7 @@ const { Redis } = require('ioredis')
 const TelegramSession = require('../Database Schema/Telegram.Model')
 const {handleChat , intiateIntialChat , generateSummary} = require('../SharedLogicAI/SharedLogic')
 const { Queue } = require('bullmq')
+const appendLogMetrics = require('../Utils/LogMetrics')
 
 async function createSession(userId , productName , productDetails , language , userName){
     const session = await TelegramSession.create({
@@ -99,6 +100,7 @@ async function sendMessage(userId, text) {
     }
     catch (error) {
         console.log(`Erro While Sending Text Message via Telegram Bot to userId ${userId}`)
+        appendLogMetrics("Telegram SendMessage " , error.message)
         return {
             status: false,
             message: error.message
@@ -126,6 +128,7 @@ async function sendVoice(userId, text) {
     }
     catch (error) {
         console.log(`Error while Sending Voice Via Telegram to userId ${userId}`)
+        appendLogMetrics("Telegram SendVoice " , error.message)
         return {
             status: false,
             message: `Failed to Sent Voice Via Telegram to userID ${userId}`
@@ -152,6 +155,7 @@ async function convertVoiceToText(fileId) {
     }
     catch (error) {
         console.log(error.message)
+        appendLogMetrics("Model TTS Error " , error.message)
         return {
             status: false,
             message: error.message
@@ -220,6 +224,7 @@ async function main(userId, productName, productDetails, language, userName , gm
         }
     }
     catch (error) {
+        appendLogMetrics("Main Function Logic Error " , error.message)
         console.log(`Error in main function : ${error.message}`)
     }
 }
