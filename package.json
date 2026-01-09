@@ -16,7 +16,7 @@
     "node-fetch": "^3.3.2",
     "node-telegram-bot-api": "^0.66.0",
     "nodemailer": "^7.0.12",
-    "nodemon": "^3.1.10",
+    "nodemon": "^3.1.11",
     "zod": "^3.25.76"
   }
 }
