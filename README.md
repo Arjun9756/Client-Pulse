@@ -121,7 +121,7 @@ ELEVENLABS_API_VOICE_ID=JBFqnCBsd6RMkjVDRZzb
 DEEPGRAM_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxx
 
 # ========== TELEGRAM BOT ==========
-TELEGRAMBOTTOKEN=7731619736:AAH9siU2xw5Xof4zcDAXu-qHBIgbNFw9R-o
+TELEGRAMBOTTOKEN
 
 # ========== DATABASE ==========
 MONGO_URI=mongodb+srv://user:password@cluster.mongodb.net/ClientPulse?retryWrites=true&w=majority
