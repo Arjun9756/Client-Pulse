@@ -101,7 +101,7 @@
 
 ### 1. Clone Repository
 ```bash
-git clone <repository-url>
+git clone <https://github.com/Arjun9756/Client-Pulse/>
 cd Backend
 ```
 
@@ -620,15 +620,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support & Contact
 
 For issues, questions, or suggestions:
-- 📧 Email: support@clientpulse.com
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/your-repo/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/your-repo/discussions)
+- 📧 Email: as9604793@gmail.com
+- 🐛 Bug Reports: [GitHub Issues](https://github.com/Arjun9756/Client-Pulse/)
+- 💬 Discussions: [GitHub Discussions](https://github.com/Arjun9756/Client-Pulse/)
 
 ---
 
 ## 🙏 Acknowledgments
 
-- [BullMQ](https://github.com/taskforcesh/bullmq) - Queue management
+- [BullMQ](https://github.com/Arjun9756/Client-Pulse/) - Queue management
 - [Groq AI](https://console.groq.com/) - LLM processing
 - [ElevenLabs](https://www.elevenlabs.io/) - Voice synthesis
 - [Telegram Bot API](https://core.telegram.org/bots/api) - Messaging
